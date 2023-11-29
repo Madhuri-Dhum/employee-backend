@@ -1,0 +1,389 @@
+{
+	"info": {
+		"_postman_id": "2626c38c-ceef-4c6d-9c94-cd9a9be5bec9",
+		"name": "Employee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25683373"
+	},
+	"item": [
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\" : \"John\",\r\n    \"last_name\" : \"Doe\",\r\n    \"email\" : \"john@gmail.com\",\r\n    \"password\" : \"12345678\",\r\n    \"role\" : \"MANAGER\",\r\n    \"department_id\" : 1,\r\n    \"location\" : \"Adaan, Surat\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/employee/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"employee",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"johndoe@gmail.com\",\r\n    \"password\" : \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/employee/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"employee",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update employee or manager",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDEyOTY3MzIsImRhdGEiOnsiZW1haWwiOiJtZEBnbWFpbC5jb20iLCJlbXBsb3llZV9pZCI6MiwiZmlyc3RfbmFtZSI6Ik1BZGh1cmkiLCJsYXN0X25hbWUiOiJEaHVtIiwicm9sZSI6IkVNUExPWUVFIn0sImlhdCI6MTcwMTI3NDgzMn0.F2pOy6W6yq28vXjbmBOVcnTdYQkgTnuICCJxsgO3xso",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\" : \"John\",\r\n    \"last_name\" : \"Doe\",\r\n    \"email\" : \"johndoe@gmail.com\",\r\n    \"role\" : \"MANAGER\",\r\n    \"department_id\" : 1,\r\n    \"location\" : \"Adaan, Surat\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/employee/update/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"employee",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get employee or manager",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDEyOTczMDIsImRhdGEiOnsiZW1haWwiOiJqb2huZG9lQGdtYWlsLmNvbSIsImVtcGxveWVlX2lkIjoxLCJmaXJzdF9uYW1lIjoiSm9obiIsImxhc3RfbmFtZSI6IkRvZSIsInJvbGUiOiJNQU5BR0VSIn0sImlhdCI6MTcwMTI3NTQwMn0.XMeihWMM39WLfvmii2lGOjuU7gvQoJylbVVmE6fr3N0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/employee?order&location=adaan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"employee"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": null,
+									"description": "ASC,DESC"
+								},
+								{
+									"key": "location",
+									"value": "adaan"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get employee or manager by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDEzMDA1NjMsImRhdGEiOnsiZW1haWwiOiJqb2huZG9lQGdtYWlsLmNvbSIsImVtcGxveWVlX2lkIjoxLCJmaXJzdF9uYW1lIjoiSm9obiIsImxhc3RfbmFtZSI6IkRvZSIsInJvbGUiOiJNQU5BR0VSIn0sImlhdCI6MTcwMTI3ODY2M30.kTZ7xRWyu0g932oTVuwHnZKLeOO8X8V_oV9Oj86facU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/employee/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"employee",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete employee or manager",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDEyOTczMDIsImRhdGEiOnsiZW1haWwiOiJqb2huZG9lQGdtYWlsLmNvbSIsImVtcGxveWVlX2lkIjoxLCJmaXJzdF9uYW1lIjoiSm9obiIsImxhc3RfbmFtZSI6IkRvZSIsInJvbGUiOiJNQU5BR0VSIn0sImlhdCI6MTcwMTI3NTQwMn0.XMeihWMM39WLfvmii2lGOjuU7gvQoJylbVVmE6fr3N0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Department",
+			"item": [
+				{
+					"name": "add department",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDEyOTczMDIsImRhdGEiOnsiZW1haWwiOiJqb2huZG9lQGdtYWlsLmNvbSIsImVtcGxveWVlX2lkIjoxLCJmaXJzdF9uYW1lIjoiSm9obiIsImxhc3RfbmFtZSI6IkRvZSIsInJvbGUiOiJNQU5BR0VSIn0sImlhdCI6MTcwMTI3NTQwMn0.XMeihWMM39WLfvmii2lGOjuU7gvQoJylbVVmE6fr3N0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"department_name\" : \"FRONTEND\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/department",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"department"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update department",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDEyOTczMDIsImRhdGEiOnsiZW1haWwiOiJqb2huZG9lQGdtYWlsLmNvbSIsImVtcGxveWVlX2lkIjoxLCJmaXJzdF9uYW1lIjoiSm9obiIsImxhc3RfbmFtZSI6IkRvZSIsInJvbGUiOiJNQU5BR0VSIn0sImlhdCI6MTcwMTI3NTQwMn0.XMeihWMM39WLfvmii2lGOjuU7gvQoJylbVVmE6fr3N0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"department_name\" : \"FRONT-END\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/department/update/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"department",
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Departments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDEyOTczMDIsImRhdGEiOnsiZW1haWwiOiJqb2huZG9lQGdtYWlsLmNvbSIsImVtcGxveWVlX2lkIjoxLCJmaXJzdF9uYW1lIjoiSm9obiIsImxhc3RfbmFtZSI6IkRvZSIsInJvbGUiOiJNQU5BR0VSIn0sImlhdCI6MTcwMTI3NTQwMn0.XMeihWMM39WLfvmii2lGOjuU7gvQoJylbVVmE6fr3N0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"department_name\" : \"FRONT-END\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/department?department=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"department"
+							],
+							"query": [
+								{
+									"key": "department",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete department",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDEyOTczMDIsImRhdGEiOnsiZW1haWwiOiJqb2huZG9lQGdtYWlsLmNvbSIsImVtcGxveWVlX2lkIjoxLCJmaXJzdF9uYW1lIjoiSm9obiIsImxhc3RfbmFtZSI6IkRvZSIsInJvbGUiOiJNQU5BR0VSIn0sImlhdCI6MTcwMTI3NTQwMn0.XMeihWMM39WLfvmii2lGOjuU7gvQoJylbVVmE6fr3N0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/department",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"department"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
