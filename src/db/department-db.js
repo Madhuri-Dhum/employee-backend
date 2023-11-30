@@ -76,13 +76,4 @@ DBService.prototype.check_department_by_id = async function (
       throw err;
     }
   };
-
-  DBService.prototype.delete_department = async function (department_id) {
-    try {
-      const department_query = `UPDATE department SET delete_status = "1" where id = ${department_id} `;
-      return await this.mysql(department_query); 
-    } catch (err) {
-      throw err;
-    }
-  };
 module.exports = DBService;

@@ -31,9 +31,9 @@ DepartmentService.prototype.update_department = async function(req, id){
     }
 }
 
-DepartmentService.prototype.delete_department = async function(department_id){
+EmoployeeService.prototype.delete_department = async function(employee_id){
     try {
-        return await this.db_service.delete_department(department_id)
+        return await this.db_service.update_employee({delete_status : "1"},employee_id)
     } catch (error) {
         throw error
     }

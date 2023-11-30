@@ -91,9 +91,10 @@ EmoployeeService.prototype.get_employee_details = async function(employee_id){
 
 EmoployeeService.prototype.delete_employee = async function(employee_id){
   try {
-      return await this.db_service.delete_employee(employee_id)
+      return await this.db_service.update_employee({delete_status : "1"},employee_id)
   } catch (error) {
       throw error
   }
 }
+
 module.exports = EmoployeeService

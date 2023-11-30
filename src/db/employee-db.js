@@ -103,13 +103,4 @@ DBService.prototype.check_employee_by_id = async function (
       throw err;
     }
   };
-
-  DBService.prototype.delete_employee = async function (employee_id) {
-    try {
-      const employee_query = `UPDATE employee SET delete_status = "1" where id = ${employee_id} `;
-      return await this.mysql(employee_query); 
-    } catch (err) {
-      throw err;
-    }
-  };
 module.exports = DBService;
